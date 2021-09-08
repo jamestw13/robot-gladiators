@@ -161,10 +161,34 @@ var endGame = function () {
 	// Player robot is still alive
 	if (playerInfo.health > 0) {
 		window.alert(
-			"Great job, you've survived the game! You now have a score of " +
+			"Congrats on your robot surviving in the pit! You now have a score of " +
 				playerInfo.money +
 				"."
 		);
+		// Retrieve current high score from local storage
+		var highscore = localStorage.getItem("highscore");
+		var championBot = localStorage.getItem("champion");
+		// Compare the current player score with high score
+
+		// if the player score is higher
+		if (!highscore || highscore < playerInfo.money) {
+			// set new high score in localStorage
+			localStorage.setItem("highscore", playerInfo.money);
+			// set current robot name object into localstorage
+			localStorage.setItem("champion", playerInfo.name);
+			// send player message that they got the new high score
+			window.alert("Congrats on winning the new high score!");
+		}
+		// if high score is higher send a message that they did not get the high score
+		else {
+			window.alert(
+				"Too bad you did not beat the reigning champion, " +
+					championBot +
+					" who got " +
+					highscore +
+					" points."
+			);
+		}
 	}
 	// Player robot died
 	else {
