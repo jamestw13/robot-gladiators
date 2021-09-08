@@ -27,6 +27,13 @@ var fight = function () {
       "."
   );
 
+  // Check enemy's health
+  if (enemyHealth <= 0) {
+    window.alert(enemyName + " has died!");
+  } else {
+    window.alert(enemyName + " has " + enemyHealth + " health left.");
+  }
+
   // Subtract the value of enemyAttack from the value of playerHealth, and use that result to update the value in the playerHealth variable.
   playerHealth -= enemyAttack;
   // Log a resulting message to the console to confirm that it worked.
@@ -40,6 +47,12 @@ var fight = function () {
       playerHealth +
       "."
   );
+  // Check enemy's health
+  if (playerHealth <= 0) {
+    window.alert(playerName + " has died!");
+  } else {
+    window.alert(playerName + " has " + playerHealth + " health left.");
+  }
 };
 
 fight();
