@@ -5,13 +5,13 @@ var playerMoney = 10;
 
 console.log(playerName, playerAttack, playerHealth);
 
-var enemyName = "Roborto";
+var enemyNames = ["Roborto", "Amy Android", "Robo Trumble"];
 var enemyHealth = 50;
 var enemyAttack = 12;
 
 window.alert("Welcome to Robot Gladiators!");
 var roundNumber = 0;
-function fight() {
+function fight(enemyName) {
   roundNumber++;
   // Alert players that they're starting the round (this is already done).
   window.alert("Starting round " + roundNumber);
@@ -75,7 +75,7 @@ function fight() {
       window.alert(playerName + " has chosen to skip the fight!");
       playerMoney -= 2;
     } else {
-      fight();
+      //   fight();
     }
   }
   // PLAYER CHOOSES INVALID CHOICE
@@ -84,4 +84,6 @@ function fight() {
   }
 }
 
-fight();
+for (i = 0; i < enemyNames.length; i++) {
+  fight(enemyNames[i]);
+}
